@@ -1,0 +1,102 @@
+\section{Week 1 Notes: 22 Feb -- 28 Feb}
+\subsection{Field extensions. Examples.}
+
+This course assumes a basic knowledge of abstract algebra (groups, rings, fields, modules), and linear algebra. All rings we consider will be associative, commutative, and with unity.
+
+\subsubsection{Two definitions of field extension.}
+
+Let $K$ and $L$ be fields.
+
+\begin{defn}
+We say that $L$ is an \term{extension of $K$} if $K \sbs L$. That is, $K$ is a subfield of $L$. Equivalently, $L$ is an extension of $K$ if $L$ is a \term{$K$-algebra}---in other words, if we have $(k_1 \mathbf{a_1})(k_2 \mathbf{a_2}) = k_1 k_2 \mathbf{a_1} \mathbf{a_2}$ for $k_i \in K$ and $\mathbf{a_i} \in A$.
+\end{defn}
+
+Why are these definitions equivalent? In fact, given a $K$-algebra structure on a ring $A$, this is the same as having a homomorphism of rings $f: K \to A$. So if we have a $K$-algebra, define a homomorphism $f$ by setting $f(k) = k \mathbf{1}$ for $k \in K$. Conversely, given an arbitrary homomorphism $f: K \to A$, set $k\mathbf{a} = f(k)\mathbf{a}$ for $\mathbf{a} \in A$.
+
+Suppose now that $A = L$ a field. Then any homomorphism $f: K \to L$ is injective. There are several ways to see this; for example, we can show that $f(k)$ is always invertible. Indeed, $\mathbf{1} = f(1) = f(k k^{-1}) = f(k)f(k^{-1})$ for any $k \neq 0$, so $f(k) \neq \mathbf{0}$ whenever $k$ is nonzero. Alternatively, we know that the kernel of $f$ is always an ideal. But $L$ is a field, so the only ideals of $L$ are $(0)$ and $(1) = K$.
+
+\subsubsection{Three examples.} 
+\begin{ex}
+$\C$ is an extension of $\R$, and $\R$ is an extension of $\Q$.
+\end{ex}
+
+\begin{ex}
+If $L$ is a field, then either (a) $1 + 1 + \ldots + 1 \neq 0$ for any sum of $1$'s. Then $L$ has characteristic $0$ and so we have $\Z \sbs L$, which means $\Q \sbs L$. Then $L$ is an extension of $\Q$. Alternatively, suppose (b) $1 + 1 + \dotsb + 1 = 0$ for some finite $m$ number of terms. The minimal such number for which this is true turns out to necessarily be a prime, $p$. We then say that $L$ has characteristic $p$, and so we have $\Z / p\Z \sbs L$; $\Z / p\Z$ is a field, and we denote it (with field structure) by $\F_p$. In this case $L$ is an extension of $\F_p$. We call $\Q$ and $\F_p$ the \term{prime fields}: any field is an extension of a prime field, and prime fields don't contain any proper subfields.
+\end{ex}
+
+\begin{ex}
+Take $K[x]/(P)$, the ring of polynomials in one variable over $K$, modded out by the ideal of an irreducible polynomial $P$. This is a field. Suppose $Q \notin (P)$, then $\gcd(Q, P) = 1$, so for some polynomials $A, B$ we have $AP + BQ = 1$ by B\'{e}zout's identity. Hence $BQ \equiv 1 \pmod P$, that is, $B$ is an inverse of $Q$ in $K[x]/(P)$.
+\end{ex}
+
+\subsection{Algebraic elements. Minimal polynomial.}
+We continue with the previous example: the quotient $K[x]/(P)$ is a field. Rather than B\'{e}zout's identity, we can say that $(P)$ is a \term{maximal ideal} of $K[x]$, and the quotient of a ring by a maximal ideal is always a field. The proof of this fact uses the same identity.
+
+This field is an extension of $K$ in the obvious way: it is a $K$-algebra!
+
+\subsubsection{A concrete example.} 
+Let $K = \F_2 = \{0, 1\} = \Z / 2\Z$, and $P = x^2 + x + 1$. Then $K[x] / (P)$ contains four elements: $0$, $1$, the class containing $x$ (denoted by $\bar{x}$, and the class containing $x + 1$ (denoted by $\overline{x + 1}$). We have that $\bar{x}^2 = -\bar{x} - 1 = \overline{x + 1}$ since $K$ has characteristic $2$. Similarly $(\overline{x + 1})^2 = \bar{x}$. Moreover, these elements are inverses of each other: $\bar{x}(\overline{x + 1}) = \bar{x}^2 + \bar{x} = -1 = 1$. Since $|K[x] / (P)| = 4$, we write $K[x] / (P) = \F_4$. This notation seems presumptuous, implying that there is ``only" one field with four elements: in fact every field with a given finite number of elements is isomorphic, so this is true. A proof will come later.
+
+\subsubsection{Algebraic elements of a field extension.}
+\begin{ex}
+Given a field extension $K \sbs L$ and an element $\alpha \in L$, we say that $\alpha$ is \term{algebraic} if there exists some polynomial $P \in K[x]$ such that $P(\alpha) = 0$; if no such polynomial exists, we say that $\alpha$ is \term{transcendental}.
+\end{ex}
+
+\begin{lem}
+If $\alpha$ is algebraic, then there exists a \emph{unique} unitary polynomial $P$ of minimal degree with $P(\alpha) = 0$. $P$ is irreducible, and for any $Q$ such that $Q(\alpha) = 0$, then $Q$ is divisible by $P$.
+\end{lem}
+
+\begin{defn}
+We call such a polynomial $P$ the \term{minimal polynomial of $\alpha$ over K}, denoted $P_{\min}(\alpha, K)$.
+\end{defn}
+\begin{proof}
+[Proof of lemma] We know that $K[x]$ is a \term{principal ideal domain}, and the polynomials $I = \{Q \in K[x] : Q(\alpha) = 0$ forms an ideal. Thus $I$ has a generator, so $I = (P)$ for some $P$. This generator is a unique (up to a constant) element of minimal degree in $I$. Furthermore, if $P$ was \emph{not} irreducible---if $P = QR$---then $P(\alpha) = Q(\alpha) R(\alpha)$ and so at least one of $Q(\alpha) = 0$ or $R(\alpha) = 0$. This would contradict the minimal-degree condition on $P$.
+\end{proof}
+
+\subsection{Algebraic elements. Algebraic extensions.}
+\subsubsection{An important bit of notation.}
+\begin{defn}
+We denote by $K(\alpha)$ the smallest subfield of $L$ containing $\alpha$. We say that $K[\alpha]$ (note the square braces) is the smallest subring (or $K$-algebra) containing $K$ and $\alpha$.
+\end{defn}
+
+$K[\alpha]$ is generated, as a vector space over $K$, by $1, \alpha, \alpha^2, \dotsc, \alpha^n, \ldots$.
+
+\begin{ex}
+$\C = \R(\imath)$ as a field, but also $\C = \R[\imath]$ as a ring. Every $z \in \C$ can be written $z = x + \imath y$; this is a vector subspace generated by $1, \imath$.
+\end{ex}
+
+\begin{prop}
+The following are equivalent: (1) $\alpha$ is algebraic over $K$; (2) $K[\alpha]$ is a finite dimensional vector space over $K$; (3) $K[\alpha] = K(\alpha)$.
+\end{prop}
+\begin{proof}
+$(1) \implies (2)$: We have that $\alpha^{d} + a_{d-1} \alpha^{d-1} + \ldots + \alpha_{1}\alpha + a_{0} = 0$ for $a_i \in K$ (this is just the minimal polynomial). Then $\alpha^{d} = - \left(\sum_{k = 0}^{d-1} a_{k} \alpha^{k}\right)$, a linear combination of the lower powers of $\alpha$. Therefore $K[\alpha]$ is generated by $1, \alpha, \ldots, \alpha^{d-1}$ over $K$: it is finite-dimensional.
+
+$(2) \implies (3)$: It is enough to prove that $K[\alpha]$ is a field, since $K[\alpha] \sbs K(\alpha)$. Let $x \in K[\alpha]$ nonzero. We want to show that $x$ is invertible. Consider the operation of multiplication by $x$, that is, $y \mapsto xy$ for $y \in K[\alpha]$: this is an injective homomorphism of vector spaces over $K$. But as $K[\alpha]$ is finite-dimensional, this is also a surjection, so there exists $z \in K[\alpha]$ such that $xz = 1$. Hence $x$ is invertible, and so $K[\alpha]$ is a field.
+
+$(3) \implies (1)$: If $\alpha$ is not algebraic, then there exists no polynomial $P$ such that $P(\alpha) = 0$. This means that the natural homomorphism $i: K[x] \to L$ defined by $P \mapsto P(\alpha)$ is injective, but $K[\alpha]$ is \emph{not} a field, and the image of $i$ is a field. Contradiction!
+\end{proof}
+
+\subsubsection{Definition and properties of algebraic extensions.}
+
+\begin{defn}
+$L$ is called \term{algebraic} over $K$ if every element of $L$ is algebraic over $K$.
+\end{defn}
+
+\begin{prop} 
+If $L$ is algebraic over $K$, then any $K$-subalgebra of $L$ is a field.
+\end{prop}
+\begin{proof}
+Let $L^\prime \sbs L$ be a subalgebra. We know that $\alpha \in L^\prime$ algebraic. Then $K[\alpha] \sbs L$ is a field, so $\alpha$ is invertible (when nonzero). This holds for any such (nonzero) $\alpha$, so $L^\prime$ is a field.
+\end{proof}
+
+\begin{prop}
+If $K \sbs L \sbs M$, and $\alpha \in M$ is algebraic over $K$, then $\alpha$ is algebraic over $L$ and its minimal polynomial $P_{\min}(\alpha, L)$ divides $P_{\min}(\alpha, K)$.
+\begin{proof}
+Consider $P_{\min}(\alpha, K)$ as an element of $L[x]$.
+\end{proof}
+\end{prop}
+
+\subsection{Finite extensions. Algebraicity and finiteness.}
+
+\subsection{Algebraicity in towers. An example.}
+
+\subsection{A digression: Gauss lemma, Eisenstein criterion.}

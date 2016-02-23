@@ -1,0 +1,131 @@
+\RequirePackage[orthodox]{nag}
+\documentclass[11pt, reqno]{article}
+
+\usepackage{amsmath}
+	\numberwithin{equation}{section}
+	\numberwithin{figure}{section}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{fullpage}
+\usepackage{color,fancyvrb}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+
+%% DOCUMENT PARAMETERS
+%% Adjust spacing, etc.
+%% 
+\linespread{1.3}
+\setlength{\headheight}{15.2pt}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\setlength{\headsep}{12pt}
+\setlength{\footskip}{15pt}
+
+\pagestyle{fancy}
+\thispagestyle{empty}
+
+%% DECLARATIVE FORMATTING
+%% Introduce new commands to standardize notation, etc.
+%%
+\newcommand{\mb}[1]{\mathbb{#1}}		% Math "blackboard" notation
+\newcommand{\mc}[1]{\mathcal{#1}}		% Math "beautiful" notation
+\newcommand{\mr}[1]{\mathrm{#1}}		% Math "Roman" notation
+
+\newcommand{\R}{\mb{R}}
+\newcommand{\N}{\mb{N}}
+\newcommand{\Z}{\mb{Z}}
+\newcommand{\F}{\mb{F}}
+\newcommand{\Q}{\mb{Q}}
+\newcommand{\C}{\mb{C}}
+
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{ex}{Example}
+
+\theoremstyle{remark}
+\newtheorem{cor}{Corollary}
+\newtheorem{rmk}{Remark}
+\newtheorem{que}{Question}
+
+\newcommand{\term}[1]{\textbf{#1}}		% Highlighted term
+
+\newcommand{\open}[1]{\left(#1\right)}	% Open interval
+\newcommand{\closed}[1]{\left[#1\right]}	% Closed interval
+\newcommand{\set}[1]{\left\{#1\right\}}	% Set
+\newcommand{\discrete}[2]{
+	\left\{#1..#2\right\}}			% Discrete interval, {1..4} -> {1,2,3,4}
+\newcommand{\rmatrix}[1]{\left(\begin{matrix} #1 \end{matrix} \right)}
+\newcommand{\smatrix}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+
+\newcommand{\sbs}{\subset}
+\newcommand{\sps}{\supset}
+\newcommand{\sbsq}{\subseteq}
+\newcommand{\spsq}{\supseteq}
+
+\newcommand{\length}[1]{\left|#1\right|}	% length of a word
+\newcommand{\norm}[1]{\left\|#1\right\|}	% Norm
+\newcommand{\dprod}[2]{#1 \cdot #2}		% Dot/inner product
+
+\newcommand{\cartprod}[2]{#1 \times #2}	% Cartesian product
+\newcommand{\inverse}[1]{#1^{-1}}		% Inverse function
+\newcommand{\after}{\circ}				% Function composition
+\newcommand{\restrict}[2]{#1\big|_{#2}}	% Function restriction
+
+\newcommand{\Range}[1]{\mathcal{R}(#1)}	% Column space of a matrix
+\newcommand{\Null}[1]{\mathcal{N}(#1)}	% Null space of a matrix
+\newcommand{\transpose}[1]{#1^T}		% Transpose of a matrix or vector
+\newcommand{\grad}[1]{\nabla #1}		% Gradient of a function
+\newcommand{\diff}[1]{D#1}				% Differential of a function
+\newcommand{\tangent}[1]{T_{#1}}		% Tangent space (to something) at a point
+\newcommand{\opt}[1]{#1^*}				% Optimal vector or function
+
+\newcommand{\rx}[1]{\textbf{#1}}  % Regular expression
+
+
+\renewcommand{\perp}[1]{#1^{\perp}}		% "Perp" space
+\renewcommand{\vec}[1]{#1}		% Alt. vector notation
+
+\renewcommand{\implies}{\Rightarrow} 		% Long arrows suck
+\renewcommand{\iff}{\Leftrightarrow} 		% Long arrows suck
+\renewcommand{\epsilon}{\varepsilon} 		% I like varepsilon
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\code}{\texttt}
+\newcommand{\s}{\section}
+\renewcommand{\ss}{\subsection}
+\newcommand{\sss}{\subsubsection}
+
+\pagestyle{myheadings}
+\thispagestyle{empty}
+
+\title{Galois Theory}
+\author{Course Notes}
+\date{22 February 2016 -- 24 April 2016}
+
+\begin{document}
+\maketitle
+\include{about}       %
+\include{week1/notes} % 22 Feb -- 28 Feb
+%\include{week1/quiz}  %           28 Feb
+%\include{week2/notes} % 29 Feb --  6 Mar
+%\include{week2/quiz}  %            6 Mar
+%\include{week3/notes} %  7 Mar -- 13 Mar
+%\include{week3/quiz}  %           13 Mar
+%\include{week4/notes} % 14 Mar -- 20 Mar
+%\include{week4/quiz}  %           20 Mar
+%\include{week5/notes} % 21 Mar -- 27 Mar
+%\include{week5/quiz}  %           27 Mar
+%\include{week6/notes} % 28 Mar --  3 Apr
+%\include{week6/quiz}  %            3 Apr
+%\include{week7/notes} %  4 Apr -- 10 Apr
+%\include{week8/notes} % 11 Apr -- 17 Apr
+%\include{week8/quiz}  %           17 Apr
+%\include{week9/notes} % 18 Apr -- 24 Apr
+%\include{week9/quiz}  %           24 Apr
+
+\end{document}
