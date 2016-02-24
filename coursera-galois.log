@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.11.18)  23 FEB 2016 00:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.11.18)  23 FEB 2016 22:32
 entering extended mode
 **coursera-galois.tex
 (coursera-galois.tex
@@ -172,29 +172,31 @@ File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
 \f@ncyO@olf=\skip58
 \f@ncyO@orf=\skip59
 )
-\c@prop=\count106
-\c@lem=\count107
-\c@defn=\count108
-\c@ex=\count109
-\c@cor=\count110
-\c@rmk=\count111
-\c@que=\count112
- (coursera-galois.aux (about.aux) (week1/notes.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-Package nag Info: Command \RaggedLeft not defined, skipping amendment on input line 110.
-Package nag Info: Command \RaggedRight not defined, skipping amendment on input line 110.
-LaTeX Info: Redefining \microtypecontext on input line 110.
+\c@thm=\count106
+\c@prop=\count107
+\c@lem=\count108
+\c@defn=\count109
+\c@ex=\count110
+\c@cor=\count111
+\c@rmk=\count112
+\c@que=\count113
+ (coursera-galois.aux (about.aux) (week1/notes.aux)
+(week1/quiz.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+Package nag Info: Command \RaggedLeft not defined, skipping amendment on input line 111.
+Package nag Info: Command \RaggedRight not defined, skipping amendment on input line 111.
+LaTeX Info: Redefining \microtypecontext on input line 111.
 Package microtype Info: Generating DVI output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -202,17 +204,17 @@ Package microtype Info: No font expansion.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 111.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+LaTeX Font Info:    Try loading font information for U+msa on input line 112.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 111.
+LaTeX Font Info:    Try loading font information for U+msb on input line 112.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
@@ -224,17 +226,26 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ] (week1/notes.tex [3
 
 
-] [4] [5])
-[6]
-No complaints by nag.
-(coursera-galois.aux (about.aux) (week1/notes.aux)) ) 
-Here is how much of TeX's memory you used:
- 3867 strings out of 493637
- 56079 string characters out of 3143781
- 154219 words of memory out of 3000000
- 7209 multiletter control sequences out of 15000+200000
- 13031 words of font info for 48 fonts, out of 3000000 for 9000
- 1025 hyphenation exceptions out of 8191
- 32i,8n,43p,815b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+] [4] [5] [6]
+Overfull \hbox (13.7525pt too wide) in paragraph at lines 152--153
+[]\OT1/cmr/m/n/10.95 The proof is ob-vi-ous: $\OML/cmm/m/it/10.95 K\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 \OT1/cmr/m/n
+/10.95 )$ is gen-er-ated by the pow-ers of $\OML/cmm/m/it/10.95 $ \OT1/cmr/m/n/10.95 up to some $\OML/cmm/m/it/10.95 [
+]$ \OT1/cmr/m/n/10.95 (if $[] \OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ; K\OT1/cmr/m/n/10.95 ) =
+ []
 
-Output written on coursera-galois.dvi (6 pages, 14464 bytes).
+[7] [8]) [9] (week1/quiz.tex [10
+
+
+]) [11]
+No complaints by nag.
+(coursera-galois.aux (about.aux) (week1/notes.aux) (week1/quiz.aux)) ) 
+Here is how much of TeX's memory you used:
+ 3902 strings out of 493637
+ 56530 string characters out of 3143781
+ 156643 words of memory out of 3000000
+ 7232 multiletter control sequences out of 15000+200000
+ 14686 words of font info for 54 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 33i,8n,43p,815b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on coursera-galois.dvi (11 pages, 35364 bytes).
