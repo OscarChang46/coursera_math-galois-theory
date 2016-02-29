@@ -11,6 +11,22 @@
 \usepackage{color,fancyvrb}
 \usepackage{microtype}
 \usepackage{fancyhdr}
+\usepackage{wrapfig}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+%
+\makeatletter
+\tikzset{join/.code=\tikzset{after node path={%
+\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious)%
+edge[every join]#1(\tikzchaincurrent)\fi}}}
+\makeatother
+%
+\tikzset{>=stealth',every on chain/.append style={join},
+         every join/.style={->}}
+\tikzstyle{labeled}=[execute at begin node=$\scriptstyle,
+   execute at end node=$]
+%
 
 %% DOCUMENT PARAMETERS
 %% Adjust spacing, etc.
@@ -31,6 +47,7 @@
 \newcommand{\mb}[1]{\mathbb{#1}}		% Math "blackboard" notation
 \newcommand{\mc}[1]{\mathcal{#1}}		% Math "beautiful" notation
 \newcommand{\mr}[1]{\mathrm{#1}}		% Math "Roman" notation
+\newcommand{\mf}[1]{\mathfrak{#1}}	% Math Fraktur notation
 
 \newcommand{\R}{\mb{R}}
 \newcommand{\N}{\mb{N}}
@@ -85,8 +102,7 @@
 \newcommand{\tangent}[1]{T_{#1}}		% Tangent space (to something) at a point
 \newcommand{\opt}[1]{#1^*}				% Optimal vector or function
 
-\newcommand{\rx}[1]{\textbf{#1}}  % Regular expression
-
+\newcommand{\embed}{\hookrightarrow}
 
 \renewcommand{\perp}[1]{#1^{\perp}}		% "Perp" space
 \renewcommand{\vec}[1]{#1}		% Alt. vector notation
@@ -94,6 +110,7 @@
 \renewcommand{\implies}{\Rightarrow} 		% Long arrows suck
 \renewcommand{\iff}{\Leftrightarrow} 		% Long arrows suck
 \renewcommand{\epsilon}{\varepsilon} 		% I like varepsilon
+\renewcommand{\phi}{\varphi}						% I like varphi
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 \newcommand{\code}{\texttt}
@@ -111,22 +128,46 @@
 \begin{document}
 \maketitle
 \include{about}       %
+
+\tableofcontents
+\newpage
+
+\part{Notes}          %
+% -------------- WEEK 1 -----------------
 \include{week1/notes} % 22 Feb -- 28 Feb
 \include{week1/quiz}  %           28 Feb
-%\include{week2/notes} % 29 Feb --  6 Mar
-%\include{week2/quiz}  %            6 Mar
+% -------------- WEEK 2 -----------------
+\include{week2/notes} % 29 Feb --  6 Mar
+\include{week2/quiz}  %            6 Mar
+% -------------- WEEK 3 -----------------
 %\include{week3/notes} %  7 Mar -- 13 Mar
 %\include{week3/quiz}  %           13 Mar
+% -------------- WEEK 4 -----------------
 %\include{week4/notes} % 14 Mar -- 20 Mar
 %\include{week4/quiz}  %           20 Mar
+% -------------- WEEK 5 -----------------
 %\include{week5/notes} % 21 Mar -- 27 Mar
 %\include{week5/quiz}  %           27 Mar
+% -------------- WEEK 6 -----------------
 %\include{week6/notes} % 28 Mar --  3 Apr
 %\include{week6/quiz}  %            3 Apr
+% -------------- WEEK 7 -----------------
 %\include{week7/notes} %  4 Apr -- 10 Apr
+% -------------- WEEK 8 -----------------
 %\include{week8/notes} % 11 Apr -- 17 Apr
 %\include{week8/quiz}  %           17 Apr
+% -------------- WEEK 9 -----------------
 %\include{week9/notes} % 18 Apr -- 24 Apr
 %\include{week9/quiz}  %           24 Apr
 
+%\part{Assignments}
+%\include{week3/u_assignment}
+%\include{week5/g_assignment}
+%\include{week7/u_assignment}
+%\include{week9/g_assignment}
+
+%\part{Exercises from Lang's ``Algebra''}
+%\include{exercises/part5}
+%\include{exercises/part6}
+%\include{exercises/part7}
 \end{document}
