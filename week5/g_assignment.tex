@@ -13,20 +13,331 @@ g) has a root in $F_64$?
 h) is irreducible over $F_64$?
 \end{que}
 \begin{proof}[Solution]
+Consider the polynomial $P(X) = X^4 + X^3 + 1$. Is it true that $P$
 
+a) is irreducible over $\F_2$?
+Yes; we merely check $P(0) = 0 + 0 + 1 = 1$ and $P(1) = 1 + 1 + 1 = 1$, confirming that $P$ has no roots in $\F_2$, and therefore no linear factors. Now we consider quadratic factors. The polynomials of degree $2$ over $\F_2$ are $x^2 + 1$, $x^2 + x$, $x^2 + x + 1$.
+
+{\color{blue} Yes. Otherwise it either has a root or is the product of two (possibly equal) irreducible polynomials of degree $2$. But there is only one such polynomial over a field of $2$ elements, namely $X^2 + X + 1$, and $P$ is not its square.}
+
+b) has a root in $\F_4$?
+$4 = 2^2$ so we need a monic irreducible quadratic over $F_2$; our options are $x^2 + 1 = (x + 1)^2$, $x^2 + x = x(x + 1)$, and $x^2 + x + 1$, which is irreducible over $F_2$. Let $\alpha$ be a root of this polynomial, so $\alpha^2 = \alpha + 1$. Then we have 
+\begin{align*}
+\alpha^1 &= \alpha\\
+\alpha^2 &= \alpha + 1\\
+\alpha^3 &= \alpha^2 + \alpha\\
+         &= \alpha + 1 + \alpha\\
+         &= 1
+\end{align*}
+Now we try to find roots. (We already know there are no roots in $\F_2 \subset \F_4$.)
+\begin{align*}
+P(\alpha)   &= \alpha^4 + \alpha^3 + 1 = \alpha + 1 + 1 = \alpha\\
+P(\alpha + 1) &= (\alpha + 1)^4 + (\alpha + 1)^3 + 1 = \alpha^4 + 1 + \alpha^3 + 1 + 1 = \alpha + 1 + 1 + 1 + 1 = \alpha
+\end{align*}
+Therefore there are no roots in $\F_4$.
+
+{\color{blue} No. Since the polynomial is irreducible over $\F_2$, its root generates a degree four extension of $\F_2$, and $\F_4$ is only a degree-two extension of $\F_2$.}
+
+c) is irreducible over $\F_4$?
+Consider the following table of elements of $\F_4$.
+\begin{tabular}{l|l|l|l}
+Bit string & $n$ & $\alpha^n$ & Polynomial in $\alpha$\\
+\hline
+\texttt{00} & $\cdot$ & $\cdot$ & $0$\\
+\texttt{10} & 1 & $\alpha^1$ & $\alpha$\\
+\texttt{11} & 2 & $\alpha^2$ & $\alpha + 1$\\
+\texttt{01} & 3 & $\alpha^3$ & $1$
+\end{tabular}
+
+We know that there are no factors with coefficients all in $\F_2 \subset \F_4$, so we need only check .
+
+Map $\alpha \mapsto \eta^{10} = \eta^3 + \eta$ (so $\alpha + 1 = \alpha^2 \mapsto \eta^{20} = \eta^{5} = \eta^3 + \eta + 1$.
+
+$x^4 + x^3 + 1 = (x + \eta)(x + \eta^{2})(x + \eta^{4})(x - \eta^{8})$
+\begin{align*}
+(x + \eta)(x + \eta^2) = x^2 + (\eta^2 + \eta) x + \eta^3 = x^2 + \eta^{13} x + 1  
+\end{align*}
+
+
+\begin{align*}
+(x + \eta)(x + \eta^4) = x^2 + (\eta + \eta^4) x + \eta^5 = x^2 + \eta^5 x + \eta^5
+\end{align*}
+Which pulls back to $x^2 + \alpha x + \alpha$.
+
+\begin{align*}
+(x + \eta)(x + \eta^8) = x^2 + (\eta + \eta^8)x + \eta^9 = x^2 + \eta^{14} x + \eta^9
+\end{align*}
+
+\begin{align*}
+(x + \eta^2)(x + \eta^8) = x^2 + (\eta^2 + \eta^8) x + \eta^{10} = x^2 + \eta^{10} x + \eta^{10}
+\end{align*}
+Which pulls back to $x^2 + \alpha^2 x + \alpha^2$.
+
+\begin{align*}
+(x^2 + \alpha x + \alpha)(x^2 + \alpha^2 x + \alpha^2) 
+&= x^4 + \alpha^2 x^3 + \alpha^2 x^2 + \alpha x^3 + \alpha^3 x^2 + alpha^3 x +     
+   \alpha x^2 + \alpha^3 x + \alpha^3\\
+&= x^4 + (\alpha^2 + \alpha) x^3 + (\alpha^2 + \alpha^3 + \alpha) x^2 + (\alpha^3 + \alpha^3) x + (\alpha^3) 1\\
+&= x^4 + x^3 + 1
+\end{align*}
+
+$x^2 + \alpha^2$
+$x^2 + x + \alpha$
+$x^2 + x + \alpha^2$
+$x^2 + \alpha x + 1$
+$x^2 + \alpha^2 x + 1$
+$x^2 + \alpha x + \alpha$
+$x^2 + \alpha x + \alpha^2$
+$x^2 + \alpha^2 x + \alpha$
+$x^2 + \alpha^2 x + \alpha^2$
+
+\begin{align*}
+(x^2 + a x + b)(x^2 + c x + d ) &= x^4 + (a + c) x^3 + (b + ac + d) x^2 + (ad + bc) x + (bd) 1
+\end{align*}
+
+{\color{blue} No. If it were irreducible over $\F_4$ it would not have a root in $\F_{16}$ and $\F_{16}$ is it splitting field as we have seen in the lectures.}
+
+
+d) is irreducible over $\F_8$?
+\begin{tabular}{l|c|c|r}
+Bit string & $n$ & $\beta^n$ & Polynomial in $\beta$\\
+\hline
+\texttt{000} & $ .$ & $.         $ & $0$\\
+\texttt{010} & $ 1$ & $\beta^{ 1}$ & $\beta$\\ 
+\texttt{100} & $ 2$ & $\beta^{ 2}$ & $\beta^2$\\
+\texttt{011} & $ 3$ & $\beta^{ 3}$ & $\beta + 1$\\
+\texttt{110} & $ 4$ & $\beta^{ 4}$ & $\beta^2 + \beta$\\
+\texttt{111} & $ 5$ & $\beta^{ 5}$ & $\beta^2 + \beta + 1$\\
+\texttt{101} & $ 6$ & $\beta^{ 6}$ & $\beta^2 + 1$\\
+\texttt{001} & $ 7$ & $\beta^{ 7}$ & $1$
+\end{tabular}
+
+\begin{align*}
+P(\beta)   &= \beta^4 + \beta^3 + 1\\
+           &= \beta^2 + \beta + \beta + 1 + 1\\
+           &= \beta^2\\
+P(\beta^2) &= \beta^8 + \beta^6 + 1\\
+           &= \beta + \beta^2 + 1 + 1\\
+           &= \beta^2 + \beta\\
+P(\beta^3) &= \beta^{12} + \beta^9 + 1
+           &= \beta^5 + \beta^2 + 1\\
+           &= \beta^2 + \beta + 1 + \beta^2 + 1\\
+           &= \beta\\
+P(\beta^4) &= \beta^{16} + \beta^{12} + 1\\
+           &= \beta^2 + \beta^5 + 1\\
+           &= \beta^2 + \beta^2 + \beta + 1 + 1\\
+           &= \beta\\
+P(\beta^5) &= \beta^{20} + \beta^{15} + 1\\
+           &= \beta^6 + \beta + 1\\
+           &= \beta^2 + 1 + \beta + 1\\
+           &= \beta\\
+P(\beta^6) &= \beta^{24} + \beta^{18} + 1\\
+           &= \beta^3 + \beta^4 + 1\\
+           &= \beta + 1 + \beta^2 + \beta + 1\\
+           &= \beta^2
+\end{align*}
+
+{\color{blue}Yes. $\F_8$ is a degree $3$ extension of $\F_2$ and $\gcd(3, 4) = 1$; we have seen in the lectures that in this situation the polynomial remains irreducible.}
+
+$\F_8 = \F_2[x] / (x^3 + x + 1)$
+
+e) has a root in $\F_{16}$?
+Yes. Since $\deg{P} = 4$ and $P$ is irreducible in $\F_2[X]$, by Prop. \# we have that $\F_{2^4} = \F_{16}$ is a splitting field for $P$, that is, we can write $F_{16} = F_2[x] / (x^4 + x^3 + 1)$. Let $\eta$ be a root of $x^4 + x^3 + 1$. Then we can write the elements of $\F_16$ as:
+
+\begin{table}
+\begin{tabular}{l|c|c|r}
+Bit string & $n$ & $\eta^n$ & Polynomial in $\eta$\\
+\texttt{0000} & $ .$ & $.        $ & $0$\\
+\texttt{0001} & $ 0$ & $\eta^{ 0}$ & $1$\\
+\texttt{0010} & $ 1$ & $\eta^{ 1}$ & $\eta$\\ 
+\texttt{0100} & $ 2$ & $\eta^{ 2}$ & $\eta^2$\\
+\texttt{1000} & $ 3$ & $\eta^{ 3}$ & $\eta^3$\\
+\texttt{1001} & $ 4$ & $\eta^{ 4}$ & $\eta^3 + 1$\\
+\texttt{1011} & $ 5$ & $\eta^{ 5}$ & $\eta^3 + \eta + 1$\\
+\texttt{1111} & $ 6$ & $\eta^{ 6}$ & $\eta^3 + \eta^2 + \eta + 1$\\
+\texttt{0111} & $ 7$ & $\eta^{ 7}$ & $\eta^2 + \eta + 1$\\
+\texttt{1110} & $ 8$ & $\eta^{ 8}$ & $\eta^3 + \eta^2 + \eta$\\
+\texttt{0101} & $ 9$ & $\eta^{ 9}$ & $\eta^2 + 1$\\
+\texttt{1010} & $10$ & $\eta^{10}$ & $\eta^3 + \eta$\\
+\texttt{1101} & $11$ & $\eta^{11}$ & $\eta^3 + \eta^2 + 1$\\
+\texttt{0011} & $12$ & $\eta^{12}$ & $\eta + 1$\\
+\texttt{0110} & $13$ & $\eta^{13}$ & $\eta^2 + \eta$\\
+\texttt{1100} & $14$ & $\eta^{14}$ & $\eta^3 + \eta^2$
+\end{tabular}
+\end{table}
+
+{\color{blue}Yes, $\F_{16}$ is it splitting field as we have seen in the lectures.}
+
+f) has a root in $\F_{32}$?
+$32 = 2^5$.
+We can represent $\F_{32}$ as $\F_2[x]/(x^5 + x^2 + 1)$.
+\begin{table}
+\begin{tabular}{l|c|c|r}
+Bit string & $n$ & $\mu^n$ & Polynomial in $\mu$\\
+\texttt{00000} & $ .$ & $.        $ & $0$\\
+\texttt{00001} & $ 0$ & $\mu^{ 0}$ & $1$\\
+\texttt{00010} & $ 1$ & $\mu^{ 1}$ & $\mu$\\ 
+\texttt{00100} & $ 2$ & $\mu^{ 2}$ & $\mu^2$\\
+\texttt{01000} & $ 3$ & $\mu^{ 3}$ & $\mu^3$\\
+\texttt{10000} & $ 4$ & $\mu^{ 4}$ & $\mu^4$\\
+\texttt{00101} & $ 5$ & $\mu^{ 5}$ & $\mu^2 + 1$\\
+\texttt{01010} & $ 6$ & $\mu^{ 6}$ & $\mu^3 + \mu$\\
+\texttt{10100} & $ 7$ & $\mu^{ 7}$ & $\mu^4 + \mu^2$\\
+\texttt{01101} & $ 8$ & $\mu^{ 8}$ & $\mu^3 + \mu^2 + 1$\\
+\texttt{11010} & $ 9$ & $\mu^{ 9}$ & $\mu^4 + \mu^3 + \mu$\\
+\texttt{10001} & $10$ & $\mu^{10}$ & $\mu^4 + 1$\\
+\texttt{00111} & $11$ & $\mu^{11}$ & $\mu^2 + \mu + 1$\\
+\texttt{01110} & $12$ & $\mu^{12}$ & $\mu^3 + \mu^2 + \mu$\\
+\texttt{11100} & $13$ & $\mu^{13}$ & $\mu^4 + \mu^3 + \mu^2$\\
+\texttt{11101} & $14$ & $\mu^{14}$ & $\mu^4 + \mu^3 + \mu^2 + 1$\\
+\texttt{11111} & $15$ & $\mu^{15}$ & $\mu^4 + \mu^3 + \mu^2 + \mu + 1$\\
+\end{tabular}
+\end{table}
+
+{\color{blue}No. It is even irreducible over $\F_{32}$ by the same reason as in (d): $\gcd(5,4) = 1$.}
+
+g) has a root in $\F_{64}$?
+We can represent $\F_{64} = \F_{2^6}$ as $\F_2[x]/(x^6 + x + 1)$.
+
+$64 = 2^6$, and $2 | 6$ and $3 | 6$, so $\F_4 \subset \F_{64}$ and $\F_8 \subset \F_{64}$, with $\F_{4} \cap \F_{8} = \F_2$ since $2 \not| 3$ (and therefore $\F_4$ is not a subfield of $\F_8$.
+
+{\color{blue}No. Otherwise, $\F_{64}$ would contain $\F_{16}$ and it does not, since $4 \not|6$.}
+
+h) is irreducible over $\F_{64}$?
+Since $\F_4 \subset \F_{64}$ we should be able to factor $x^4 + x^3 - 1$ into $x^2 + \sigma(\alpha) x + \sigma(\alpha))(x^2 + \sigma(\alpha^2) x + \sigma(\alpha^2)$ by a suitable homomorphism $\sigma: \F_{4} \to \F_{64}$. Now we know that if $\gamma$ is a root of $x^{6} + x + 1$ so that $\gamma^{6} = \gamma + 1$, then $\gamma$ has order $63 = 3^2 \cdot 7$, so that suggests (since we need $\sigma(\alpha)$ to have order $3$) that $\sigma(\alpha) = \gamma^{21} $ or $\sigma(\alpha) = \gamma^{42}$, as $(\gamma^{21})^3 = \gamma^{63} = 1$ and $(\gamma^{42})^3 = \gamma^{126} = (\gamma^{63})^2 = 1$ but $(\gamma^{42})^2 = \gamma^{84} = \gamma^{21}$.
+
+\begin{tabular}{l|c|c|r}
+Bit string & $n$ & $\gamma^n$ & Polynomial in $\gamma$\\
+\texttt{000000} & $ .$ & $.        $ & $0$\\
+\texttt{000010} & $ 1$ & $\gamma^{ 1}$ & $\gamma^1$\\ 
+\texttt{000100} & $ 2$ & $\gamma^{ 2}$ & $\gamma^2$\\
+\texttt{001000} & $ 3$ & $\gamma^{ 3}$ & $\gamma^3$\\
+\texttt{010000} & $ 4$ & $\gamma^{ 4}$ & $\gamma^4$\\
+\texttt{100000} & $ 5$ & $\gamma^{ 5}$ & $\gamma^5$\\
+\texttt{000011} & $ 6$ & $\gamma^{ 6}$ & $\gamma + 1$\\
+\texttt{000110} & $ 7$ & $\gamma^{ 7}$ & $\gamma^2 + \gamma$\\
+\texttt{001100} & $ 8$ & $\gamma^{ 8}$ & $\gamma^3 + \gamma^2$\\
+\texttt{011000} & $ 9$ & $\gamma^{ 9}$ & $\gamma^4 + \gamma^3$\\
+%
+\texttt{110000} & $10$ & $\gamma^{10}$ & $\gamma^5 + \gamma^4$\\
+\texttt{100011} & $11$ & $\gamma^{11}$ & $\gamma + 1 + \gamma^5$\\
+\texttt{000101} & $12$ & $\gamma^{12}$ & $\gamma^2 + 1$\\
+\texttt{001010} & $13$ & $\gamma^{13}$ & $\gamma^3 + \gamma$\\
+\texttt{010100} & $14$ & $\gamma^{14}$ & $\gamma^4 + \gamma^2$\\
+\texttt{101000} & $15$ & $\gamma^{15}$ & $\gamma^5 + \gamma^3$\\
+\texttt{010011} & $16$ & $\gamma^{16}$ & $\gamma^4 + \gamma + 1$\\
+\texttt{100110} & $17$ & $\gamma^{17}$ & $\gamma^5 + \gamma^2 + \gamma$\\
+\texttt{001111} & $18$ & $\gamma^{18}$ & $\gamma^3 + \gamma^2 + \gamma + 1$\\
+\texttt{011110} & $19$ & $\gamma^{19}$ & $\gamma^4 + \gamma^3 + \gamma^2 + \gamma$\\
+%
+\texttt{111100} & $20$ & $\gamma^{20}$ & $\gamma^5 + \gamma^4 + \gamma^3 + \gamma^2$\\
+\texttt{111011} & $21$ & $\gamma^{21}$ & $\gamma^5 + \gamma^4 + \gamma^3 + \gamma + 1$\\
+\vdots          & \vdots & \vdots     & \vdots \\
+\texttt{111010} & $42$ & $\gamma^{42}$ & $\gamma^5 + \gamma^4 + \gamma^3 + \gamma$\\
+\vdots          & \vdots & \vdots     & \vdots
+\end{tabular}
+
+
+So we set $\sigma(\alpha) = \gamma^{42}$ (and hence $\sigma(\alpha + 1) = \gamma^{21} = \gamma^{42} + 1$:
+
+\[
+x^4 + x^3 - 1 = (x^2 + \gamma^{42} x + \gamma^{42})(x^2 + \gamma^{21} x + \gamma^{21})
+\]
+
+{\color{blue}No. $\F_{64}$ contains $\F_4$ since $2 | 6$ and our polynomial is the product of two quadratic factors over $\F_4$.}
 \end{proof}
 
 \begin{que}
 a) Let $p$ be a prime number. Prove that the polynomial $X^{p-1} + X_{p-2} + \dotsb + X + 1 = \frac{X^p - 1}{X - 1}$ is irreducible over $\Q$ (a possible hint: one can try ot use Eisenstein criterion after a suitable variable change).
-
-Set $\zeta = e^{2\imath\pi/7}$ and $L = \Q(\zeta)$. Let $M = L \cap \R$.
-
-b) Find the minimal polynomial of $\zeta$ over $\Q$ and the degree of $L$ over $\Q$.
-
-c) Find the minimal polynomial of $\zeta$ over $M$ (hint: what is $\zeta + 1 / \zeta$?) and the degrees $[L:M]$ and $[M:\Q]$.
-
-d) Let $f$ be an automorphism of $L$ over $\Q$. List all possibilities for $f(\zeta)$ then for $f(\cos(2\pi/7))$.
-\end{que}
 \begin{proof}
+Let $X = y + 1$, so we now have 
+\begin{align*}
+\frac{(y + 1)^p - 1}{y + 1 - 1} &= \frac{y^p + \binom{p}{2} y^{p-1} + \dotsb + \binom{p}{p - 1} y + 1 - 1}{y}\\
+                                &= y^{p-1} + \binom{p}{2} y^{p-2} + \dotsb + p
+\end{align*}
+Now $p$ divides all the binomial coefficients, but since the last coefficient is exactly equal to $p$, clearly $p^2$ doesn't divide it. Therefore by Eisenstein we have that the polynomial in $y$ is irreducible. Moreover, if the original polynomial in $X$ was reducible, we would have it equal to $Q(X)R(X)$, but then $Q(y + 1)R(y + 1)$ would be a factorization of the polynomial in $y$. Hence the original polynomial in $X$ is irreducible.
+\end{proof}
+\end{que}
 
-b) \[\zeta + 1/\zeta = e^{2\imath\pi/7} + e^{-2\imath\pi/7} = \cos{2\pi/7} + \imath\sin{2\pi/7} + \cos{-2\pi/7} + \imath\sin{-2\pi/7} = 2\cos{2\pi/7}\]
+\begin{que}
+b) Set $\zeta = e^{2\imath\pi/7}$ and $L = \Q(\zeta)$. Let $M = L \cap \R$. Find the minimal polynomial of $\zeta$ over $\Q$ and the degree of $L$ over $\Q$.
+
+\begin{proof}[Solution]
+We see that $\zeta^7 = e^{2\imath\pi} = 1$, so it is a root of $x^7 - 1 = (x - 1)(x^6 + x^5 + x^4 + x^3 + x^2 + 1)$. Now $x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$ is irreducible from what we showed in part (a), and $[L : \Q] = 6$ since $\set{1, \zeta, \zeta^2, \zeta^3, \zeta^4, \zeta^5}$ is a basis for $L = \Q(\zeta)$. Thus we have the minimal polynomial for $\zeta$.
+
+{\color{blue}By part (a), the polynomial $x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$ is irreducible and has $\zeta = e^{2\pi\imath / 7}$ as a root, so it must be the minimal polynomial of $\zeta$. The extension $L = \Q(\zeta)$ must have degree $6$ over $\Q$.}
+\end{proof}
+\end{que}
+
+\begin{que}
+c) Find the minimal polynomial of $\zeta$ over $M$ (hint: what is $\zeta + 1 / \zeta$?) and the degrees $[L:M]$ and $[M:\Q]$.
+\begin{proof}[Solution]
+We note that \[\zeta + 1/\zeta = e^{2\imath\pi/7} + e^{-2\imath\pi/7} = \cos{2\pi/7} + \imath\sin{2\pi/7} + \cos{-2\pi/7} + \imath\sin{-2\pi/7} = 2\cos{2\pi/7}\]
+
+Note also that $\zeta^{-1} = \zeta^6$ since $\zeta \cdot \zeta^6 = \zeta^7 = 1$. Hence
+\begin{align*}
+(\zeta + \zeta^6)^3 &= \zeta^3 + 3 \zeta^2 \cdot \zeta^6 + 3 \zeta \cdot (\zeta^6)^2 + (\zeta^6)^3\\
+                    &= \zeta^3 + 3 \zeta^8 + 3 \zeta^{13} + \zeta^{18}\\
+                    &= \zeta^3 + 3 \zeta + 3 \zeta^6 + \zeta^4\\
+(\zeta + \zeta^6)^2 &= \zeta^2 + 2 \zeta \cdot \zeta^6 + (\zeta^6)^2\\
+                    &= \zeta^2 + 2 \zeta^7 + \zeta^{12}\\
+                    &= \zeta^2 + 2 + \zeta^5\\
+(\zeta + \zeta^6)^3 + \cdot (\zeta + \zeta^6)^2 - 2 \cdot (\zeta + \zeta^6)
+                    &= \zeta^3 + 3 \zeta + 3 \zeta^6 + \zeta^4
+                     + \zeta^2 + 2 + \zeta^5
+                     - 2 \zeta - 2 \zeta^6\\
+                    &= \zeta^6 + \zeta^5 + \zeta^4 + \zeta^3 + \zeta^2 + \zeta + 1 + 1
+                    &= 1
+\end{align*}
+So $\zeta + \zeta^{-1}$ is a root of $x^3 + x^2 - 2x - 1$, which is irreducible in $\Q$ (by, e.g., considering the polynomial modulo $2$).
+
+Since this polynomial has degree $3$, we conclude that $[M : \Q] = 3$, whence $[L : M] = 2$ since $[L : \Q] = [L : M] [M : \Q] = 6$.
+
+{\color{blue}Note $\zeta + 1/\zeta = 2\cos(2\pi/7) \in M = L \cap \R$. Thus the quadratic polynomial $(x - \zeta)(x - 1/\zeta) = x^2 - 2\cos(2\pi/7)x + 1$ has coefficients in $M$, and is irreducible over $M$, since $M \subset \R$ while the roots of this polynomial are non-real. Hence $x^2 - 2\cos(2\pi /7)x + 1$ is the minimal polynomial for $\zeta$ over $M$. It follows that $[L:M] = 2$, and so since $6 = [L:\Q] = [L:M][M:\Q] = 2 [M:\Q]$, it also follows that $[M:\Q] = 3$.
+\end{proof}
+\end{que}
+
+\begin{que}
+d) Let $f$ be an automorphism of $L$ over $\Q$. List all possibilities for $f(\zeta)$, then for $f(\cos(2\pi/7))$.
+\begin{proof}[Solution]
+We see that $\zeta, \zeta^2, \dotsc, \zeta^6$ all have order $7$, so we can have $f_n(\zeta) = \zeta^n$, $n = 1, \dotsc, 6$, that is, six possibilities for $f(\zeta)$.
+
+Now if $\zeta \mapsto \zeta^n$, then $\cos(2 \pi /7) = (\zeta + \zeta^{6}) / 2 \mapsto (\zeta^n + \zeta^{6n}) / 2$. 
+
+$n = 1: (\zeta + \zeta^6) / 2$
+
+$n = 2: (\zeta^2 + \zeta^{12}) / 2 = (\zeta^2 + \zeta^5) / 2$
+
+$n = 3: (\zeta^3 + \zeta^{18}) / 2 = (\zeta^3 + \zeta^4) / 2$
+
+$n = 4: (\zeta^4 + \zeta^{24}) / 2 = (\zeta^4 + \zeta^3) / 2$ (same as $n = 3$)
+
+$n = 5: (\zeta^5 + \zeta^{30}) / 2 = (\zeta^5 + \zeta^2) / 2$ (same as $n = 2$)
+
+$n = 6: (\zeta^6 + \zeta^{36}) / 2 = (\zeta^6 + \zeta) / 2$ (same as $n = 1$).
+
+So there are only three possible images of $\cos(2 \pi / 7)$.
+\end{proof}
+\end{que}
+
+\begin{que}
+Which of the following algebras are fields? Products of fields? Describe these fields.
+
+\begin{proof}[Solution]
+a) $\Q(\sqrt[3]{2}) \tensor{\Q} \Q(\sqrt{2})$
+We know that $\Q(\sqrt{2}) \iso \Q[x] / (x^2 - 2)$, so $\Q(\sqrt[3]{2}) \tensor{\Q} \Q(\sqrt{2}) \iso \Q(\sqrt[3]{2})[x] / (x^2 - 2)$. Now since $x^2 - 2$ is also irreducible over $\Q(\sqrt[3]{2})$, this is a field, with elements of the form $a + b \cdot \sqrt{2}$ where $a, b \in \Q(\sqrt[3]{2}$.
+
+b) $\Q(\sqrt[4]{2}) \tensor{\Q} \Q(\sqrt{2})$
+This is isomorphic to $\Q(\sqrt[4]{2})[x] / (x^2 - 2)$, but $x^2 - 2$ is reducible over $\Q(\sqrt[4]{2}$ since $(\sqrt[4]{2})^2 = \sqrt{2}$. Hence this is not a field.
+
+c) $\F_2(\sqrt{T}) \tensor{\F_2(T)} \F_2(\sqrt{T})$
+$F_2(\sqrt{T}) \iso \F_2(T)[x] / (x^2 - T)$, but $x^2 - T = (x - \sqrt{T})^2$ over $F_2(T)$. Hence the tensor product is not a field.
+
+d) $\F_4(\sqrt[3]{T}) \tensor{\F_4(T)} \F_4(\sqrt[3]{T})$.
+$F_4(\sqrt[3]{T}) \iso \F_4(T)[x] / (x^3 - T)$, and $x^3 - T$ is irreducible over $F_4(T)$.
+
+$(x - \sqrt[3]{T})(x^2 + a \cdot x + (\sqrt[3]{T})^2) = x^3 + a x^2 + (\sqrt[3]{T})^2 x + \sqrt[3]{T} x^2 + a \sqrt[3]{T} x + T) = x^3 + (a + \sqrt[3]{T}) x^2 + (a + \sqrt[3]{2} + (\sqrt[3]{2})^2) x + T$
+
+$a + \sqrt{}$
+\end{proof}
+\end{que}

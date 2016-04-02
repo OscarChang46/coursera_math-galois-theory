@@ -3,7 +3,7 @@
 
 This course assumes a basic knowledge of abstract algebra (groups, rings, fields, modules), and linear algebra. All rings we consider will be associative, commutative, and with unity.
 
-\subsubsection{Two definitions of field extension.}
+\subsubsection*{Two definitions of field extension.}
 
 Let $K$ and $L$ be fields.
 
@@ -15,7 +15,7 @@ Why are these definitions equivalent? In fact, given a $K$-algebra structure on 
 
 Suppose now that $A = L$ a field. Then any homomorphism $f: K \to L$ is injective. There are several ways to see this; for example, we can show that $f(k)$ is always invertible. Indeed, $\mathbf{1} = f(1) = f(k k^{-1}) = f(k)f(k^{-1})$ for any $k \neq 0$, so $f(k) \neq \mathbf{0}$ whenever $k$ is nonzero. Alternatively, we know that the kernel of $f$ is always an ideal. But $L$ is a field, so the only ideals of $L$ are $(0)$ and $(1) = K$.
 
-\subsubsection{Three examples.} 
+\subsubsection*{Three examples.} 
 \begin{ex}
 $\C$ is an extension of $\R$, and $\R$ is an extension of $\Q$.
 \end{ex}
@@ -33,10 +33,10 @@ We continue with the previous example: the quotient $K[x]/(P)$ is a field. Rathe
 
 This field is an extension of $K$ in the obvious way: it is a $K$-algebra!
 
-\subsubsection{A concrete example.} 
+\subsubsection*{A concrete example.} 
 Let $K = \F_2 = \{0, 1\} = \Z / 2\Z$, and $P = x^2 + x + 1$. Then $K[x] / (P)$ contains four elements: $0$, $1$, the class containing $x$ (denoted by $\bar{x}$, and the class containing $x + 1$ (denoted by $\overline{x + 1}$). We have that $\bar{x}^2 = -\bar{x} - 1 = \overline{x + 1}$ since $K$ has characteristic $2$. Similarly $(\overline{x + 1})^2 = \bar{x}$. Moreover, these elements are inverses of each other: $\bar{x}(\overline{x + 1}) = \bar{x}^2 + \bar{x} = -1 = 1$. Since $|K[x] / (P)| = 4$, we write $K[x] / (P) = \F_4$. This notation seems presumptuous, implying that there is ``only" one field with four elements: in fact every field with a given finite number of elements is isomorphic, so this is true. A proof will come later.
 
-\subsubsection{Algebraic elements of a field extension.}
+\subsubsection*{Algebraic elements of a field extension.}
 \begin{ex}
 Given a field extension $K \sbs L$ and an element $\alpha \in L$, we say that $\alpha$ is \term{algebraic} if there exists some polynomial $P \in K[x]$ such that $P(\alpha) = 0$; if no such polynomial exists, we say that $\alpha$ is \term{transcendental}.
 \end{ex}
@@ -53,7 +53,7 @@ We call such a polynomial $P$ the \term{minimal polynomial of $\alpha$ over K}, 
 \end{proof}
 
 \subsection{Algebraic elements. Algebraic extensions.}
-\subsubsection{An important bit of notation.}
+\subsubsection*{An important bit of notation.}
 \begin{dfn}
 We denote by $K(\alpha)$ the smallest subfield of $L$ containing $\alpha$. We say that $K[\alpha]$ (note the square braces) is the smallest subring (or $K$-algebra) containing $K$ and $\alpha$.
 \end{dfn}
@@ -75,7 +75,7 @@ $(2) \implies (3)$: It is enough to prove that $K[\alpha]$ is a field, since $K[
 $(3) \implies (1)$: If $\alpha$ is not algebraic, then there exists no polynomial $P$ such that $P(\alpha) = 0$. This means that the natural homomorphism $i: K[x] \to L$ defined by $P \mapsto P(\alpha)$ is injective, but $K[\alpha]$ is \emph{not} a field, and the image of $i$ is a field. Contradiction!
 \end{proof}
 
-\subsubsection{Definition and properties of algebraic extensions.}
+\subsubsection*{Definition and properties of algebraic extensions.}
 
 \begin{dfn}
 $L$ is called \term{algebraic} over $K$ if every element of $L$ is algebraic over $K$.
@@ -162,7 +162,7 @@ Let $\alpha, \beta$ be algebraic over $K$. We want to show that $\alpha + \beta$
 \end{proof}
 
 \subsection{A digression: Gauss lemma, Eisenstein criterion.}
-\subsubsection{A brief review.}
+\subsubsection*{A brief review.}
 We said that for a field $K$, an element $\alpha$ is algebraic over $K$ if $\alpha$ is a root of some polynomial $P \in K[x]$. 
 
 We said that an extension $L$ is algebraic over $K$ if every element $\alpha \in L$ is algebraic over $K$. 
@@ -175,7 +175,7 @@ Finally, we deduced that $[K(\alpha):K] = \deg P_{\min}(\alpha, K)$.
 
 Therefore, it's important to be able to know whether a given polynomial is in fact irreducible over $K$.
 
-\subsubsection{How to decide that a polynomial is irreducible over K.}
+\subsubsection*{How to decide that a polynomial is irreducible over $K$.}
 In our example we had $x^3 - 2$ is irreducible $\Q$. Since the degree of this polynomial is equal to 3 and there is no root in $\Q$.
 
 But if we ask whether $x^{100} - 2$ is irreducible over $\Q$, this is not so trivial. In fact it is irreducible, based on a few facts.
