@@ -1,0 +1,285 @@
+\section[Finite fields. Separability, perfect fields.]{Lecture Notes: 07 Mar -- 13 Mar}
+
+\subsection{An example (of extension). Finite fields.}
+Here we formulate two corollaries on the theorem of extension of field homomorphisms.
+
+\begin{cor}
+An algebraic closure of $K$ is unique up to an isomorphism of $K$-algebras.
+\end{cor}
+
+\begin{cor}
+Any algebraic extension of $K$ embeds into the algebraic closure.
+\end{cor}
+
+\begin{ex}[Example of extension of homomorphisms.]
+Take $K = \Q$ and fix $\bar{\Q}$ (for example, take $\bar{\Q} \sbs \C$ the ``algebraic numbers,'' that is, all roots of polynomials in $\Q[x]$). 
+
+Let $L = \Q(\sqrt{2})$, but it is better to write $L = \Q[x] / \ideal{x^2 - 2}$; and let $\alpha$ denote the class of $x$ in $L$. 
+$L$ has two embeddings in $\bar{\Q}$: $\phi_1: \alpha \mapsto \sqrt{2}$ and $\phi_2: \alpha \mapsto -\sqrt{2}$ (each embedding is the identity when restricted to $\Q$). 
+
+Now consider $M = \Q(\sqrt[4]{2}) = \Q[x]/\ideal{y^4 - 2}$, with $\beta$ denoting the class of $y$ in $M$.
+$M$ has four embeddings in $\bar{\Q}$: $\beta$ can go to $\pm\sqrt[4]{2}, \pm\imath\sqrt[4]{2}$. 
+Now $\psi_1: \beta \mapsto \sqrt[4]{2}$ and $\psi_2: \beta \mapsto -\sqrt[4]{2}$ extend $\phi_1$: indeed, $M$ is an extension of $L$, with $M = L[y] / \ideal{y^2 - \alpha}, \phi_1: \alpha \mapsto \sqrt{2}$. 
+Similarly $\psi_3: \beta \mapsto \imath\sqrt[4]{2}$ and $\psi_4: \beta \mapsto -\imath\sqrt[4]{2}$ extend $\phi_2$, since $\pm\imath\sqrt[4]{2}$ are the square roots of $-\sqrt{2}$.
+\end{ex}
+
+\subsubsection{Finite fields.}
+We have seen that $K$ a finite field necessarily means that $K$ has characteristic $p$ for some prime $p$; $K$ is a finite extension over $\F_p$; if $n = [K:\F_p]$ then $\card{K} = p^n$. 
+The usual notation is $K = \F_{p^n}$.
+
+There are natural questions to ask: namely, whether it exists, and whether it is unique. 
+We will shortly prove a theorem which answers these; but first, a remark about fields of characteristic $p$.
+
+\begin{rmk}
+If $K$ is a field of characteristic $p$, then $F_p: K \to K, x \mapsto x^p$ is a field homomorphism: $(x + y)^p = x^p + y^p, (xy)^p = x^p y^p$. 
+This special mapping is called the ``Frobenius homomorphism.'' 
+Likewise, $F_{p^n}: x \mapsto x^{p^n}$ is also a field homomorphism---this is just a power of the Frobenius map.
+\end{rmk}
+
+\begin{thm}
+Fix an algebraic closure $\F_p \sbs \bar{\F}_p$. 
+The splitting field of $x^{p^n} - x$ has $p^n$ elements; conversely, any field of $p^n$ elements is a splitting field of $x^{p^n} - x$. 
+Moreover, there is a \emph{unique} subextension of $\bar{\F}_p$ consisting of $p^n$ elements.
+\end{thm}
+\begin{proof}
+We have seen that $F_{p^n}: x \mapsto x^{p^n}$ is a homomorphism of fields. 
+Then it follows that $\set{x : F_{p^n}(x) = x}$ is a subfield containing $\F_p$. 
+But these are exactly the roots of $x^{p^n} - x = Q_n(x)$; this subfield is a splitting field of $Q_n$. 
+Since $Q_n$ does not have multiple roots (this can be seen, for instance, by verifying that $\gcd(Q_n, Q_n^\prime) = 1$ as $Q_n^\prime \equiv 1$), we have that there are $p^n$ roots. 
+Hence the splitting field of $Q_n$ is exactly the field of roots of $Q_n$, and this field has $p^n$ elements.
+
+Conversely, let $\card{K} = p^n$ and $\alpha \in K$. 
+Then $\alpha^{p^n - 1} = 1$ provided $\alpha \neq 0$. 
+Indeed, the multiplicative group of $K$, $K^\times$, has cardinality $p^n - 1$. 
+So $\alpha$ is a root of $x^{p^n} - x$, and $0$ is also a root. 
+Hence $K$ consists of roots of $Q_n$; the uniqueness of the subextension (of the image of the embedding) follows.
+\end{proof}
+
+\subsection{Properties of finite fields.}
+Now we formulate and prove another few properties of finite fields; these are very much in the spirit of the previous theorem.
+
+\begin{thm}
+$\F_{p^n} \sps F_{p^d}$ if and only if $d|n$.
+\end{thm}
+\begin{proof}
+The ``only if'' direction rests on the multiplicativity of degrees in towers. 
+We see that $[\F_{p^n} : \F_{p}] = [\F_{p^n} : \F_{p^d}] [\F_{p^d} : \F_{p}]$; substituting in the respective degrees, we see that $n = [\F_{p^n} : \F_{p^d}] d$, so $d|n$.
+
+Conversely, suppose that $d|n$. 
+Then if $x^{p^d} = x$, also $x^{p^n} = x$. 
+Therefore $\F_{p^d} \sbs \F_{p^n}$.
+\end{proof}
+
+\begin{thm}
+$\F_{p^n}$ is a stem field and a splitting field of any irreducible polynomial $P \in \F_p[x]$ of degree $n$.
+\end{thm}
+\begin{proof}
+The part about being a stem field is clear; indeed, a stem field of $P$ has degree $n$ over $\F_p$; this is $\F_{p^n}$. 
+Now let $\alpha$ be a root of $P$. 
+If $\alpha \in \F_{p^n}$, then $Q_n(\alpha) = 0$; hence $P$ divides $Q_n$ and so $P$ splits in $\F_{p^n}$.
+\end{proof}
+
+This has a simple corollary:
+\begin{cor}
+$Q_n = \prod_{d|n}\prod_{\text{$P$ irred. monic of degree $d$}} P$.
+\end{cor}
+\begin{proof}
+We have already seen why: all such $P$ divide $Q_n$ (since the stem field is $\F_{p^d} \sbs \F_{p^n}$). 
+Then $\prod_{d|n}\prod_{\text{$P$ irred. monic of degree $d$}} P$ divides $Q_n$. 
+Now $Q_n$ has no multiple roots, so there are also no multiple factors, either; what remains to prove is that there are no other irreducible factors of $Q_n$.
+
+Let $R$ be an irreducible factor of $Q_n$. 
+If $\alpha$ is a root of $R$, $Q_n(\alpha) = 0$, so $\F_{p}(\alpha) \sbs \F_{p^n}$, which means that $\F_{p}(\alpha) = \F_{p^d}$ where $d|n$. 
+Hence $\deg{R} | n$, so there are no other irreducible factors.
+\end{proof}
+
+\subsection{Multiplicative group and automorphism group of a finite field.}
+Our next goal is a familiar theorem: the theorem saying that the multiplicative group of a finite field is cyclic. 
+To make it instructive, we will prove it in a slightly more general version.
+
+\begin{thm}
+Let $K$ be a field, and $G$ a finite subgroup of $K^\times$. Then $G$ is cyclic.
+\end{thm}
+\begin{proof}
+The idea is to compare $G$ and $\Z/n\Z$, where $n = \card{G}$. 
+Let $\psi(d)$ denote the number of elements of order $d$ in $G$. 
+We now need to prove that $\psi(n) \neq 0$. 
+We know that $n = \sum \psi(d)$. 
+Denote by $\phi(d)$ the number of elements of order $d$ in $\Z/n\Z$; but as this is a cyclic group, it contains a single (cylic) subgroup of order $d$ for each $d|n$. 
+Namely, it contains the one generated by $n/d$. 
+So $\phi(d)$ gives the number of generators of $\Z/d\Z$; this is well known to be the number of numbers between $1$ and $d - 1$ which are prime to $d$. 
+We know that $\phi(n) \neq 0$. 
+Now we claim that either $\psi(d) = 0$, or $\psi(d) = \phi(d)$. 
+This is sufficient, since $\sum \phi(d) = \sum \psi(d) = n$.
+\end{proof}
+\begin{proof}[Proof of claim.]
+If there is no element of order $d$, then $\psi(d) = 0$; if there is one element $x$ of order $d$ in $G$, then $x$ is a root of the polynomial $x^d - 1$.
+If you look at all the roots of such a polynomial, you see that they form a cyclic subgroup of $G$. 
+So $G$, as well as $\Z/n\Z$, has a single (cyclic) subgroup of order $d$, or no such subgroup at all.
+(So far we know that $\Z/n\Z$ has such a subgroup for \emph{any} $d$ which divides $n$; with $G$ this is not necessarily true \emph{a priori}.) 
+
+If $\psi(d) \neq 0$ then there is such a subgroup, and the number of elements of order $d$, $\psi(d)$, is the number of generators of that subgroup; that is, whenever $\psi$ is nonzero, it is equal to $\phi$. 
+Hence $\psi(d) \leq \phi(d)$, but since $\sum \psi(d) = \sum \phi(d)$ we must have $\psi(d) = \phi(d)$. 
+In particular, $\psi(n) \neq 0$.
+\end{proof}
+
+\begin{cor}
+If $K$ is an extension of $\F_p$ of degree $n$, then there exists $\alpha$ such that $K = \F_p(\alpha)$. 
+\end{cor}
+One might object and say that this has already been shown, as we have seen that $\F_{p^n}$ is a stem field of any irreducible polynomial of degree $n$.
+But this corollary is actually stronger, as we did not guarantee that such polynomials actually existed!
+\begin{cor*}[contd.]
+In particular, there exists an irreducible polynomial of degree $n$ over $\F_p$.
+\end{cor*}
+\begin{proof}
+Since we know that $K^\times$ is cyclic, it suffices to take $\alpha$ to be a generator.
+\end{proof}
+
+\begin{cor}
+The group $\Aut{\F_{p^n}/\F_p}$ is cyclic, generated by the Frobenius map $F: x \mapsto x^p$.
+\end{cor}
+\begin{proof}
+Of course, $x^{p^n} = x$ for any $x \in \F_{p^n}$ as we have seen, so $F^n = \mathrm{id}$. 
+On the other hand, the order of $F$ is exactly $n$, since if $m < n$ then $F^m$ is not the identity (for instance, since $x^{p^m} - x = 0$ has only $p^m$ roots, and $p^m < p^n$).
+Finally, $\F_{p^n} = \F_p(\alpha)$, where $\alpha$ is a root of an irreducible polynomial $P$ of degree $n$.
+This $\alpha$ goes to another root of $P$ under an automorphism, so $\card{\Aut{\F_{p^n} / \F_p}} \leq n$.
+Then the cardinality is in fact $n$, and the group is cyclic, generated by $F$.
+\end{proof}
+
+\subsection{Separable elements.}
+Our next topic is \term{separability}. 
+We would like to say that a splitting field $E$ of an irreducible polynomial $P$ ``has many automorphisms.''
+By this we mean that if $\alpha, \beta$ are roots of $P$, and $E \sps K(\alpha)$ and $E \sps K(\beta)$, then there exists a homomorphism
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+	 \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em, minimum width=2em]
+			{ K(\alpha) &  & K(\beta) \\
+				   & K & 								\\ };
+	 \path[-stealth]
+			(m-1-1) edge node [above] {$\phi$} (m-1-3)
+			(m-2-2) edge node {} (m-1-1)
+			(m-2-2) edge node {} (m-1-3);
+\end{tikzpicture}
+\end{figure}
+
+such that $\phi$ extends to an automorphism of $E$.
+
+There is one problem about this: is it true that an irreducible polynomial of degree $n$ has ``many'' (that is, $n$) roots?
+The answer is yes, if $K$ has characteristic $0$; but this not always true if $K$ has prime characteristic!
+$P$ has multiple roots if and only if $\gcd(P, P^\prime) \neq 1$.
+In characteristic-$0$, this is never the case when $P$ is irreducible ($\deg P^\prime < \deg P$, and $P^\prime \neq 0$ when $P$ is non-constant, so $P$ doesn't divide $P^\prime$).
+In characteristic-$p$, $P^\prime$ can vanish, and then $\gcd(P, P^\prime) = P$.
+How can $P^\prime$ vanish?
+This happens exactly when $P$ is a polynomial in $x^p$; that is to say, $P = \sum a_i x^i$ with $a_i \neq 0$ only if $p|i$.
+
+Take $r = \max{h : \text{$P$ is a polynomial in $x^{p^h}$}}$, that is, $a_i = 0$ whenever $p^h$ does not divide $i$.
+Then we can write $P(x) = Q(x^{p^r})$, in which case $Q^\prime \neq 0$.
+\begin{prop}
+In particular, $\gcd(Q, Q^\prime) = 1$ and $Q$ does not have multiple roots.
+Additionally, all roots of $P$ have multiplicity $p^r$.
+\end{prop}
+\begin{proof}
+If $\lambda$ is a root of $P$, then $P = (x - \lambda) R$.
+Then $\mu = \lambda^{p^r}$ is a root of $Q$, so $Q(y) = (y - \lambda^{p^r}) S$ where $\lambda$ is not a root of $S$.
+Now set $y = x^{p^r}$, so $P(x) = (x^{p^r} - \lambda^{p^r}) S(x^{p^r})$; this is just $(x - \lambda)^{p^r}$, and $\lambda$ is not a root of $S(x^{p^r})$.
+Hence the multiplicity of $\lambda$ is $p^r$.
+\end{proof}
+\begin{dfn}
+Let $P \in K[x]$ be irreducible. Then $P$ is called \term{separable} if $\gcd(P, P^\prime) = 1$. 
+The \term{separable degree} of $P$, denoted $d_{sep}(P)$, is defined as $\deg Q$ as above.
+The \term{degree of inseparability}, denoted $d_i(P)$ is defined as $\deg P / \deg Q$, which is $p^r$.
+$P$ is called \term{purely inseparable} $\deg P = d_i(P)$---then $P(x) = x^{p^r} - a$.
+\end{dfn}
+\begin{dfn}
+Let $L$ be an algebraic extension of $K$. An element $\alpha \in L$ is called \term{separable over $K$} or \term{purely inseparable over $K$} if its minimal polynomial, $P_{\min}(\alpha, K)$, has this property.
+\end{dfn}
+\begin{prop}
+If $\alpha$ is separable over $K$, then $\card{\Hom{K}{K(\alpha), \bar{K}}} = \deg P_{\min}(\alpha, K)$.
+(In general: $\card{\Hom{K}{K(\alpha), \bar{K}}} = d_{\mr{sep}} P_{\min}(\alpha, K)$.)
+\end{prop}
+\begin{proof}
+The proof is obvious, because the separable degree is just the number of distinct roots of $P$, so we can send alpha to any one of those roots.
+\end{proof}
+
+\subsection{Separable degree, separable extensions.}
+We can generalize this property to fields which are not necessarily given as $K(\alpha)$.
+
+\begin{dfn}
+Take $L$ to be an arbitrary finite extension of $K$. 
+Define the \term{separable degree of $L$ over $K$}, $[L:K]_{\mr{sep}}$, to be $[L:K]_{\mr{sep}} = \card{\hom{K}{L, \bar{K}}}$.
+(If $L = K(\alpha)$ this is just the number of distinct roots of $P_{\min}(\alpha, K)$.)
+We say that $L$ is \term{separable} over $K$ if $[L:K]_{\mr{sep}} = [L:K]$.
+Also, the \term{degree of inseparability} can be defined as $[L:K]_i = [L:K]/[L:K]_{\mr{sep}}$ (but this won't be very important going forward).
+\end{dfn}
+\begin{thm}
+(1) Separable degree is multiplicative: if $K \sbs L \sbs M$, then $[M:K]_{\mr{sep}} = [M:L]_{\mr{sep}}[L:K]_{\mr{sep}}$; $M$ is separable over $K$ if and only if $M$ is separable over $L$ and $L$ is separable over $K$.
+
+(2) The following are equivalent: (i) $L$ is separable over $K$; (ii) any element $\alpha \in L$ is separable over $K$; (iii) $L = K(\alpha_1,\dotsc,\alpha_n)$ with $\alpha_j$ separable over $K$; (iv) $L = K(\alpha_1,\dotsc,\alpha_n)$, with each $\alpha_j$ separable over $K(\alpha_1,\dotsc,\alpha_{j-1})$.
+\end{thm}
+\begin{rmk}
+The same result holds when we replace ``separable'' by ``purely inseparable.''
+\end{rmk}
+\begin{proof}[Proof of (1)]
+We know that any homomorphism $\phi: L \to \bar{K}$ extends to $\tilde{\phi}: M \to \bar{K}$; this is the extension theorem.
+In fact, there are exactly $[M:L]_{\mr{sep}}$ ways to do this, since given $\phi$, one considers $\bar{K}$ as $\bar{L}$.
+Thus we have $[M:K]_{\mr{sep}} = [L:K]_{\mr{sep}} [M:L]_{\mr{sep}}$.
+Equivalence of separability is just the fact that $[E:K]_{\mr{sep}} \leq [E:K]$ for any extension $E$.
+The last fact is proved by induction, using the fact that this is true for $E = K(\alpha)$.
+\end{proof}
+\begin{proof}[Proof of (2)]
+(i) $\implies$ (ii): This is a consequence of part (1), which implies that any subextension $K(\alpha)$ of a separable extension $L$ is itself separable.
+
+(ii) $\implies$ (iii): This is obvious, as separability of any element implies that all the generators are separable.
+
+(iii) $\implies$ (iv):  This is clear because $P_{\min}(\alpha_j, K(\alpha_1, \dotsc, \alpha_{j-1})$ divides $P_{\min}(\alpha_j, K)$.
+Then if $P_{\min}(\alpha_j, K)$ is seprable (has distinct roots), then so is its divisor.
+
+(iv) $\implies$ (i): This can be proved by induction, as above.
+\end{proof}
+
+One might ask: is the notion of separability defined for extensions which are not necessarily finite?
+Yes: if $L$ over $K$ is a not necessarily finite algebraic extension, we can define the \term{separable closure} $L^{\mr{sep}} = \set{x : \text{$x$ is separable over $K$}}$.
+This $L^{\mr{sep}}$ is a subextension, and $L$ is purely inseparable over $L^{\mr{sep}}$.
+
+\begin{rmk}
+(1) If $K$ has characteristic $0$, then any extension is separable.
+
+(2) If $K$ has characteristic $p$, then a purely inseparable extension has degree $p^r$.
+Always, $[L:K]_i = p^r$.
+\end{rmk}
+
+\subsection{Perfect fields.}
+We have seen that fields of characteristic $0$ have only separable extensions; but this is also true of \emph{certain} fields of characteristic $p$.
+Such fields are called \term{perfect fields}.
+Let $K$ be a field with characteristic $p$.
+\begin{dfn}
+We say that $K$ is \term{perfect} if $F: K \to K, x \mapsto x^p$ is surjective.
+\end{dfn}
+\begin{ex}[Perfect fields]
+Any finite field is perfect, since an injective self-map of a finite set is surjective.
+Moreover, any algebraically closed field is perfect, since $x^p - a$ has a root $\alpha$ for any $a \in K$. 
+In particular, $F(\alpha) = a$.
+\end{ex}
+\begin{ex}[Non-perfect field]
+Take $K = \F_p(x)$, the field of rational functions in one variable over $\F_p$.
+A typical element is of the form $f(x)/g(x)$, where $f,g \in \F_p[x]$.
+Then $\Image{F} = \F_p(x^p) \neq \F_p(x)$, since $x \notin F_p(x^p)$.
+Hence $K$ is not perfect.
+\end{ex}
+The following theorem illustrates why we care about perfect fields.
+\begin{thm}
+$K$ is perfect if and only if all irreducible polynomials over $K$ are separable---this means that all algebraic extensions of $K$ are separable.
+\end{thm}
+\begin{proof}
+First, suppose that $K$ is perfect.
+Let $P \in K[x]$ and suppose that $P(x) = Q(x^{p^r}) = \sum a_i(x^{p^r})^i$.
+Since $K$ is perfect, we can extract $p^{th}$ roots of $a_i$'s: there exists $b_i \in K$ such that $(b_i)^{p^r} = a_i$.
+Then $P = \left(\sum b_i x^i\right)^{p^r}$, which is not irreducible unless $r = 0$.
+Thus, irreducibility implies separability.
+
+Conversely, if $K$ is not perfect, then there exists $a \notin \Image{F}$.
+Then $x^{p^r} - a$ is irreducible: all roots in $\bar{K}$ are the same $\alpha$ with $\alpha^{p^r} = a$, and $\alpha^{p^{r-1}} \notin K$.
+We have already seen that in this case, the degree of $K[x]$ over $K$ is exactly $p^r$.
+This completes the proof.
+\end{proof}

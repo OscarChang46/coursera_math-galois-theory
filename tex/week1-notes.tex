@@ -3,19 +3,19 @@
 
 This course assumes a basic knowledge of abstract algebra (groups, rings, fields, modules), and linear algebra. All rings we consider will be associative, commutative, and with unity.
 
-\subsubsection{Two definitions of field extension.}
+\subsubsection*{Two definitions of field extension.}
 
 Let $K$ and $L$ be fields.
 
-\begin{defn}
+\begin{dfn}
 We say that $L$ is an \term{extension of $K$} if $K \sbs L$. That is, $K$ is a subfield of $L$. Equivalently, $L$ is an extension of $K$ if $L$ is a \term{$K$-algebra}---in other words, if we have $(k_1 \mathbf{a_1})(k_2 \mathbf{a_2}) = k_1 k_2 \mathbf{a_1} \mathbf{a_2}$ for $k_i \in K$ and $\mathbf{a_i} \in A$.
-\end{defn}
+\end{dfn}
 
 Why are these definitions equivalent? In fact, given a $K$-algebra structure on a ring $A$, this is the same as having a homomorphism of rings $f: K \to A$. So if we have a $K$-algebra, define a homomorphism $f$ by setting $f(k) = k \mathbf{1}$ for $k \in K$. Conversely, given an arbitrary homomorphism $f: K \to A$, set $k\mathbf{a} = f(k)\mathbf{a}$ for $\mathbf{a} \in A$.
 
 Suppose now that $A = L$ a field. Then any homomorphism $f: K \to L$ is injective. There are several ways to see this; for example, we can show that $f(k)$ is always invertible. Indeed, $\mathbf{1} = f(1) = f(k k^{-1}) = f(k)f(k^{-1})$ for any $k \neq 0$, so $f(k) \neq \mathbf{0}$ whenever $k$ is nonzero. Alternatively, we know that the kernel of $f$ is always an ideal. But $L$ is a field, so the only ideals of $L$ are $(0)$ and $(1) = K$.
 
-\subsubsection{Three examples.} 
+\subsubsection*{Three examples.} 
 \begin{ex}
 $\C$ is an extension of $\R$, and $\R$ is an extension of $\Q$.
 \end{ex}
@@ -33,10 +33,10 @@ We continue with the previous example: the quotient $K[x]/(P)$ is a field. Rathe
 
 This field is an extension of $K$ in the obvious way: it is a $K$-algebra!
 
-\subsubsection{A concrete example.} 
+\subsubsection*{A concrete example.} 
 Let $K = \F_2 = \{0, 1\} = \Z / 2\Z$, and $P = x^2 + x + 1$. Then $K[x] / (P)$ contains four elements: $0$, $1$, the class containing $x$ (denoted by $\bar{x}$, and the class containing $x + 1$ (denoted by $\overline{x + 1}$). We have that $\bar{x}^2 = -\bar{x} - 1 = \overline{x + 1}$ since $K$ has characteristic $2$. Similarly $(\overline{x + 1})^2 = \bar{x}$. Moreover, these elements are inverses of each other: $\bar{x}(\overline{x + 1}) = \bar{x}^2 + \bar{x} = -1 = 1$. Since $|K[x] / (P)| = 4$, we write $K[x] / (P) = \F_4$. This notation seems presumptuous, implying that there is ``only" one field with four elements: in fact every field with a given finite number of elements is isomorphic, so this is true. A proof will come later.
 
-\subsubsection{Algebraic elements of a field extension.}
+\subsubsection*{Algebraic elements of a field extension.}
 \begin{ex}
 Given a field extension $K \sbs L$ and an element $\alpha \in L$, we say that $\alpha$ is \term{algebraic} if there exists some polynomial $P \in K[x]$ such that $P(\alpha) = 0$; if no such polynomial exists, we say that $\alpha$ is \term{transcendental}.
 \end{ex}
@@ -45,18 +45,18 @@ Given a field extension $K \sbs L$ and an element $\alpha \in L$, we say that $\
 If $\alpha$ is algebraic, then there exists a \emph{unique} unitary polynomial $P$ of minimal degree with $P(\alpha) = 0$. $P$ is irreducible, and for any $Q$ such that $Q(\alpha) = 0$, then $Q$ is divisible by $P$.
 \end{lem}
 
-\begin{defn}
+\begin{dfn}
 We call such a polynomial $P$ the \term{minimal polynomial of $\alpha$ over K}, denoted $P_{\min}(\alpha, K)$.
-\end{defn}
+\end{dfn}
 \begin{proof}
 [Proof of lemma] We know that $K[x]$ is a \term{principal ideal domain}, and the polynomials $I = \{Q \in K[x] : Q(\alpha) = 0$ forms an ideal. Thus $I$ has a generator, so $I = (P)$ for some $P$. This generator is a unique (up to a constant) element of minimal degree in $I$. Furthermore, if $P$ was \emph{not} irreducible---if $P = QR$---then $P(\alpha) = Q(\alpha) R(\alpha)$ and so at least one of $Q(\alpha) = 0$ or $R(\alpha) = 0$. This would contradict the minimal-degree condition on $P$.
 \end{proof}
 
 \subsection{Algebraic elements. Algebraic extensions.}
-\subsubsection{An important bit of notation.}
-\begin{defn}
+\subsubsection*{An important bit of notation.}
+\begin{dfn}
 We denote by $K(\alpha)$ the smallest subfield of $L$ containing $\alpha$. We say that $K[\alpha]$ (note the square braces) is the smallest subring (or $K$-algebra) containing $K$ and $\alpha$.
-\end{defn}
+\end{dfn}
 
 $K[\alpha]$ is generated, as a vector space over $K$, by $1, \alpha, \alpha^2, \dotsc, \alpha^n, \ldots$.
 
@@ -75,11 +75,11 @@ $(2) \implies (3)$: It is enough to prove that $K[\alpha]$ is a field, since $K[
 $(3) \implies (1)$: If $\alpha$ is not algebraic, then there exists no polynomial $P$ such that $P(\alpha) = 0$. This means that the natural homomorphism $i: K[x] \to L$ defined by $P \mapsto P(\alpha)$ is injective, but $K[\alpha]$ is \emph{not} a field, and the image of $i$ is a field. Contradiction!
 \end{proof}
 
-\subsubsection{Definition and properties of algebraic extensions.}
+\subsubsection*{Definition and properties of algebraic extensions.}
 
-\begin{defn}
+\begin{dfn}
 $L$ is called \term{algebraic} over $K$ if every element of $L$ is algebraic over $K$.
-\end{defn}
+\end{dfn}
 
 \begin{prop} 
 If $L$ is algebraic over $K$, then any $K$-subalgebra of $L$ is a field.
@@ -96,9 +96,9 @@ Consider $P_{\min}(\alpha, K)$ as an element of $L[x]$.
 \end{prop}
 
 \subsection{Finite extensions. Algebraicity and finiteness.}
-\begin{defn}[Finite extension]
+\begin{dfn}[Finite extension]
 $L$ is said to be a \term{finite extension} of $K$ if it is a finite-dimensional $K$-vector space. The dimension of $L$ over $K$ is called the \term{degree} of $L$ over $K$, and is denoted by $[L:K]$. 
-\end{defn}
+\end{dfn}
 \begin{thm}
 Suppose $K \sbs L \sbs M$. Then $M$ is finite over $K$ if and only if $M$ is finite over $L$ and $L$ is finite over $K$. Moreover, in this case, the degrees multiply: $[M:K] = [M:L][L:K]$.
 \end{thm}
@@ -110,9 +110,9 @@ Second, let $\set{e_i}_{i = 1}^{n}$ be an $L$-basis of $M$, and $\set{\epsilon_j
 If we have $\sum_{i,j} c_{ij} e_i \epsilon_j = 0$ then $\sum_{i} \left(\sum_{j} c_{ij} \epsilon_j\right) e_i = 0$, and $\sum_{j} c_{ij} \epsilon_j \in L$. But $\set{e_i}$ is a basis, so for all $i$, we have $\sum_{j} c_{ij} \epsilon_j = 0$. And since $\set{\epsilon_j}$ is a basis, necessarily $c_{ij} = 0$ for all $i, j$. This proves the theorem.
 \end{proof}
 
-\begin{defn}
+\begin{dfn}
 We say that $K(\alpha_1, \dotsc, \alpha_n) \sbs L$, the smallest subfield of $L$ containing $K, \alpha_1, \dotsc, \alpha_n$, is \term{generated} by $\alpha_1, \dotsc, \alpha_n$ over $K$.
-\end{defn}
+\end{dfn}
 
 \begin{thm}
 $L$ is finite over $K$ if and only if $L$ is generated by a finite number of algebraic elements over $K$.
@@ -162,7 +162,7 @@ Let $\alpha, \beta$ be algebraic over $K$. We want to show that $\alpha + \beta$
 \end{proof}
 
 \subsection{A digression: Gauss lemma, Eisenstein criterion.}
-\subsubsection{A brief review.}
+\subsubsection*{A brief review.}
 We said that for a field $K$, an element $\alpha$ is algebraic over $K$ if $\alpha$ is a root of some polynomial $P \in K[x]$. 
 
 We said that an extension $L$ is algebraic over $K$ if every element $\alpha \in L$ is algebraic over $K$. 
@@ -175,7 +175,7 @@ Finally, we deduced that $[K(\alpha):K] = \deg P_{\min}(\alpha, K)$.
 
 Therefore, it's important to be able to know whether a given polynomial is in fact irreducible over $K$.
 
-\subsubsection{How to decide that a polynomial is irreducible over K.}
+\subsubsection*{How to decide that a polynomial is irreducible over $K$.}
 In our example we had $x^3 - 2$ is irreducible $\Q$. Since the degree of this polynomial is equal to 3 and there is no root in $\Q$.
 
 But if we ask whether $x^{100} - 2$ is irreducible over $\Q$, this is not so trivial. In fact it is irreducible, based on a few facts.
