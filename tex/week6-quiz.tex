@@ -1,36 +1,75 @@
 \subsection[Quiz]{Week 6 Quiz}
 
 \subsubsection*{1. Which of the following statements are true?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph*{Every quadratic extension $F / k$ has automorphism group of order $2$.}
+FALSE: %TODO
 
 \paragraph*{Every quadratic extension $F / k$ of a field of characteristic zero is Galois.}
+TRUE: %TODO
 
 \paragraph*{Every quadratic extension $F / k$ of a field of characteristic $p \neq 2$ is Galois.}
+TRUE: %TODO
 
 \paragraph*{$\F_2(X) / \F_2(X^2)$ is a Galois extension.}
+FALSE: $\F_2(X)$ is in fact a purely inseparable extension, and hence cannot be Galois.
 
 \subsubsection*{2. Which of the following statements are true?}
 
-\paragraph*{Let $F$ be the splitting field of $x^3 - 2$ over $\Q(\sqrt{-3})$ then $\Gal{F / \Q(\sqrt{-3}} \iso \Z / 3\Z$.}
+\paragraph*{Let $F$ be the splitting field of $x^3 - 2$ over $\Q(\sqrt{-3})$; then $\Gal{F / \Q(\sqrt{-3}} \iso \Z / 3\Z$.}
+TRUE: Let $\alpha_1 = \zeta\sqrt[3]{2}, \alpha_2 = \zeta^2\sqrt[3]{2}, \alpha_3 = \sqrt[3]{2}$, where $\zeta$ is a primitive cube root of unity.
 
 \paragraph*{Every cubic extension of $\Q$ is Galois.}
+FALSE: Consisder $E = \Q[x] / (x^3 - x^2 - 3x - 1)$. This polynomial has three distinct real roots $\alpha, \beta, \gamma$, and its discriminant is $148$. This is not a (rational) square, so $E$ is not Galois. 
 
-\paragraph*{$\Aut(\Q(\sqrt[3]{2} \iso \Z / 3\Z$.}
+\paragraph*{$\Aut{\Q(\sqrt[3]{2})} \iso \Z / 3\Z$.}
+FALSE: %TODO
 
 \paragraph*{Let $F$ be the splitting field of $x^3 - 2$ over $\Q$. Then $\Gal{F / \Q} \iso S_3$.}
+TRUE: %TODO
 
 \subsubsection*{3. Let $\Phi_d \in \Q[x]$ be the $d$th cyclotomic polynomial (the product of $x - \zeta^a$ for $\gcd(a, d) = 1$, where $\zeta$ is a primitive $d$th root of unity). Which of he following statements are true?}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph*{$\Phi_d$ has integral coefficients.}
+TRUE: %TODO
 
 \paragraph*{$\Phi_d$ is irreducible over $\Q$.}
+TRUE: %TODO
 
 \paragraph*{$\Phi_d$ is irreducible over $\F_p$ for every $p$.}
+FALSE: $\Phi_4 = (x - \imath)(x - \imath^3) = x^2 + 1$, but $x^2 + 1 = (x + 1)^2$ over $\F_2$.
 
 \paragraph*{$\Phi_8 = x^4 - 1$}
+FALSE: $\Phi_8 = (x - e^{\pi\imath/4})(x - e^{3\pi\imath/4})(x - e^{5\pi\imath/4})(x - e^{7\pi\imath/4}) = \dotsb = (x^2 - e^{\pi\imath/2})(x^2 - e^{3\pi\imath/2}) = x^4 + 1$.
 
 \paragraph*{$\Phi_8 = x^4 + 1$}
+TRUE.
 
 \paragraph*{$\Phi_{10} = x^4 - x^3 + x^2 - x + 1$}
+TRUE: %TODO
 
+\paragraph*{$\Phi_{10} = x^4 + x^3 + x^2 + x + 1$}
+FALSE.
+
+\paragraph*{$\Phi_{10}$ is irreducible over $\Q$}
+TRUE.
+
+\paragraph*{$\Phi_{10}$ is irreducible over $\F_5$}
+FALSE: Not %TODO is not a primitive root modulo %TODO
+
+\subsubsection*{4. Let $\zeta$ denote a primitive $10$th root of unity. Which of the following are true?
+
+\paragraph*{$\Gal{\Q(\zeta) / \Q} \iso (\Z / 10\Z)^{\times}$ (the group of units)}
+TRUE: %TODO
+
+\paragraph*{$\Gal{\Q(\zeta) / \Q} \iso \Z / 4\Z$}
+FALSE.
+
+\paragraph*{The splitting field of $\Phi_{10}$ over $\Q$ has degree $4$.}
+TRUE: We showed in the previous question that $\Phi_{10}$ is an irreducible polynomial over $\Q$ of degree $4$.
+
+\paragraph*{The discriminant of $\Phi_{10}$ is a square in $\Q$. (Hint: Determine whether $\Gal{\Phi_{10}}$ is a subgroup of $A_4$.)}
+
+\paragraph*{$\Gal{\Q(\zeta) / \Q} \iso \Z / 5\Z$}
+FALSE.
