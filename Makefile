@@ -9,9 +9,12 @@ WK7=tex/week7-notes.tex                    tex/week7-hw.tex
 WK8=tex/week8-notes.tex tex/week8-quiz.tex
 WK9=tex/week9-notes.tex tex/week9-quiz.tex tex/week9-test.tex
 
+autoclean:
+	rm -r *.aux *.synctex.gz
+
 all: $(BASE) $(WK1) $(WK2) $(WK3) $(WK4) $(WK5) $(WK6) $(WK7) $(WK8) $(WK9)
 	pdflatex tex/coursera-galois.tex --output-directory pdf
-	clean
+	autoclean
 
 clean:
-	rm -r *.aux *.synctex.gz
+	rm -r *.aux *.synctex.gz *.toc *.log
