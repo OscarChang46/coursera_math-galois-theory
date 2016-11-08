@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=coursera-galois.tex
 
 [Frame0_View0,0]
-TopLine=76
+TopLine=90
 Cursor=5383
 
 [Frame1]
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=week4\quiz.tex
 
 [Frame3_View0,0]
-TopLine=6
-Cursor=1727
+TopLine=38
+Cursor=4215
 
 [SessionInfo]
 FrameCount=4
